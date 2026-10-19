@@ -32,7 +32,41 @@
     @media(max-width:560px){.wrap{padding:28px 16px 38px}.guide{min-height:calc(100svh - 66px)}.loading-screen{min-height:calc(100svh - 66px)}.intro{font-size:1rem;margin:13px 0 22px}.fields{grid-template-columns:1fr;gap:14px}.calc{padding:18px}.calc .calculate{width:100%;min-width:0;margin:2px 0 0}.guide-head{margin-top:20px}.guide-card{grid-template-columns:1fr;gap:18px;padding:22px;min-height:0}.guide-art{grid-row:1;width:124px;border-radius:30px}.guide-copy h2{margin-top:13px}.guide-desc{font-size:.94rem;margin-top:10px}.guide-amount{font-size:clamp(2rem,10vw,2.7rem)}.nav-buttons .btn{flex:1;padding:12px 10px}.summary-title{margin-top:20px}.summary .results-head{align-items:flex-start;flex-direction:column}.grid,.summary .grid{grid-template-columns:1fr}}
     @media(max-width:380px){.grid,.summary .grid{grid-template-columns:1fr}.guide-head{align-items:flex-start;flex-direction:column;gap:6px}.cardbody{grid-template-columns:1fr 72px}.illustration{width:72px;height:72px}.illustration svg{width:54px;height:54px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
-  </style>
+  
+    .loading-screen{min-height:calc(100svh - 108px);padding:24px 18px;gap:12px}
+    .loading-screen .loader{margin:0}
+    .loading-screen h2{margin:8px 0 0;color:#fff}
+    .loading-screen p{margin:0;color:var(--muted)}
+    .loading-progress{width:min(100%,390px);height:12px;margin-top:12px;border:1px solid #383838;border-radius:999px;background:#171717;overflow:hidden}
+    .loading-progress span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#ffca27,#ffe27a);transition:width .16s ease}
+    .loading-progress-label{color:#ffca27;font-size:.9rem;font-weight:800;font-variant-numeric:tabular-nums}
+    .guide-card{border:1px solid #e2e2e2;border-top:6px solid var(--accent);background:#fff;color:#0b0b0b;box-shadow:0 18px 42px #0005}
+    .guide-copy .num{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;background:var(--tint);color:#111;letter-spacing:.06em}
+    .guide-copy h2{color:#0b0b0b}
+    .guide-desc{color:#454545}
+    .guide-art{background:linear-gradient(145deg,var(--tint),#f5f5f5);box-shadow:inset 0 0 0 1px #00000010,0 18px 40px #0002}
+    .summary{max-width:1000px;margin:20px auto 0;padding:0;border:0;border-radius:0;background:transparent;color:var(--ink);box-shadow:none}
+    .summary-title h2{color:#fff}
+    .summary-title p{color:var(--muted)}
+    .summary .results-head h2{color:#fff}
+    .summary .total{color:var(--muted)}
+    .summary .total strong{color:#fff}
+    .summary .level-banner{background:#171717;border-color:#393939;color:#f2f2f2}
+    .summary .level-banner strong{color:#ffca27}
+    .summary .card{border:1px solid #dedede;border-top:4px solid var(--accent);background:#fff;color:#111;box-shadow:0 10px 28px #0002}
+    .summary .card .num{display:inline-flex;border-radius:999px;padding:5px 8px;background:var(--tint);color:#171717;letter-spacing:.08em}
+    .summary .card p{color:#555}
+    .summary .card h3{color:#111}
+    .summary .card:after{opacity:.42}
+    .thanks-screen{min-height:calc(100svh - 108px);display:flex;align-items:center;justify-content:center}
+    .thanks-panel{width:min(100%,560px);padding:clamp(26px,5vw,48px);border:1px solid #393939;border-left:5px solid #ffca27;border-radius:24px;background:#171717;box-shadow:0 22px 60px #0005;text-align:center}
+    .thanks-mark{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 18px;border-radius:50%;background:#ffca2720;color:#ffca27;font-size:2rem;font-weight:900}
+    .thanks-panel .eyebrow{margin-bottom:10px}
+    .thanks-panel h2{margin:0 0 12px;color:#fff;font-size:clamp(1.8rem,5vw,2.5rem)}
+    .thanks-panel>p:not(.eyebrow){max-width:430px;margin:0 auto 24px;color:var(--muted);line-height:1.65}
+    .thanks-panel .calculate{min-width:min(100%,300px)}
+    @media(max-width:560px){.loading-screen,.thanks-screen{min-height:calc(100svh - 66px)}}
+</style>
 </head>
 <body>
   <main class="wrap">
@@ -63,7 +97,7 @@
         <div class="income-actions"><button class="btn" id="back-to-registration" type="button">← Volver a mis datos</button><button class="calculate" id="start-calculation" type="button" disabled>Comenzar el cálculo <span aria-hidden="true">→</span></button></div>
       </div>
     </section>
-    <section class="screen loading-screen" id="loading-screen" hidden aria-live="polite"><div class="loader" aria-hidden="true"></div><h2>Preparando tu distribución</h2><p>Estamos organizando tus cuentas…</p></section>
+    <section class="screen loading-screen" id="loading-screen" hidden aria-live="polite"><div class="loader" aria-hidden="true"></div><h2>Preparando tu distribución</h2><p>Estamos organizando tus cuentas…</p><div class="loading-progress" role="progressbar" aria-label="Preparación de la distribución" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="load-progress-fill"></span></div><span class="loading-progress-label" id="load-progress-label">0%</span></section>
     <section class="screen guide" id="guide-screen" hidden aria-live="polite">
       <div class="guide-head"><h2 id="welcome">Tu distribución</h2><span class="step-label" id="step-label">Cuenta 1 de 6</span></div>
       <div class="step-track" id="step-track" role="progressbar" aria-label="Avance de la distribución por cuenta" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"></div>
@@ -78,8 +112,17 @@
       <section class="grid" id="results" aria-label="Resumen de las seis cuentas"></section>
       <div class="summary-actions"><button class="btn primary" id="download-pdf" type="button">Descargar resultados en PDF ↓</button><button class="btn" id="restart" type="button">Cargar nuevos datos</button></div>
     </section>
+    <section class="screen thanks-screen" id="thanks-screen" hidden aria-live="polite">
+      <div class="thanks-panel">
+        <span class="thanks-mark" aria-hidden="true">✓</span>
+        <p class="eyebrow">Comunidad de aprendizaje</p>
+        <h2>¡Gracias por registrarte!</h2>
+        <p>El grupo de Telegram se abrió en otra pestaña. Gracias por sumarte y seguir aprendiendo sobre finanzas.</p>
+        <button class="calculate" id="thanks-restart" type="button">Hacer un nuevo cálculo <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
   </main>
-  <div class="modal-backdrop" id="telegram-modal" hidden role="dialog" aria-modal="true" aria-labelledby="telegram-title"><div class="telegram-modal"><button class="close-modal" id="close-modal" type="button" aria-label="Cerrar">×</button><p class="eyebrow">Comunidad de aprendizaje</p><h2 id="telegram-title">¿Te gustó la información que compartimos?</h2><p>Únete a mi grupo de Telegram para compartir más conocimientos y seguir aprendiendo sobre finanzas.</p><a class="telegram-join" href="https://t.me/+uR3270hu2gAzNmNh" target="_blank" rel="noopener noreferrer">Únete al grupo <span aria-hidden="true">→</span></a></div></div>
+  <div class="modal-backdrop" id="telegram-modal" hidden role="dialog" aria-modal="true" aria-labelledby="telegram-title"><div class="telegram-modal"><button class="close-modal" id="close-modal" type="button" aria-label="Cerrar">×</button><p class="eyebrow">Comunidad de aprendizaje</p><h2 id="telegram-title">¿Te gustó la información que compartimos?</h2><p>Únete a mi grupo de Telegram para compartir más conocimientos y seguir aprendiendo sobre finanzas.</p><a class="telegram-join" id="telegram-join" href="https://t.me/+uR3270hu2gAzNmNh" target="_blank" rel="noopener noreferrer">Únete al grupo <span aria-hidden="true">→</span></a></div></div>
   <script>
     const buckets = [
       {name:'Gastos fijos',pct:60,desc:'Vivienda, servicios, alimentación, transporte, colegio y salud.',color:'#63b9ff',tint:'#63b9ff20',icon:'<path d="m10 20 10-8 10 8v11H10z"/><path d="M7 19 20 9l13 10M17 31v-8h6v8"/>'},
@@ -95,7 +138,7 @@
       {name:'Nivel 3 · Construcción patrimonial',range:'S/ 10,000 a más',priority:'Controlar el estilo de vida, diversificar inversiones y construir activos.',percentages:[40,10,30,10,5,5]}
     ];
     const form=document.querySelector('#income-form'),input=document.querySelector('#income'),nameInput=document.querySelector('#person-name'),emailInput=document.querySelector('#email'),phoneInput=document.querySelector('#phone'),countrySelect=document.querySelector('#country'),consentInput=document.querySelector('#consent'),results=document.querySelector('#results'),total=document.querySelector('#total'),distribution=document.querySelector('#distribution');
-    const formScreen=document.querySelector('#form-screen'),incomeScreen=document.querySelector('#income-screen'),loadingScreen=document.querySelector('#loading-screen'),guideScreen=document.querySelector('#guide-screen'),summaryScreen=document.querySelector('#summary-screen'),guideCard=document.querySelector('#guide-card'),stepLabel=document.querySelector('#step-label'),stepTrack=document.querySelector('#step-track'),progress=document.querySelector('[role="progressbar"]'),previous=document.querySelector('#previous'),next=document.querySelector('#next'),status=document.querySelector('#form-status'),modal=document.querySelector('#telegram-modal');
+    const formScreen=document.querySelector('#form-screen'),incomeScreen=document.querySelector('#income-screen'),loadingScreen=document.querySelector('#loading-screen'),guideScreen=document.querySelector('#guide-screen'),summaryScreen=document.querySelector('#summary-screen'),thanksScreen=document.querySelector('#thanks-screen'),loadProgressFill=document.querySelector('#load-progress-fill'),loadProgressLabel=document.querySelector('#load-progress-label'),guideCard=document.querySelector('#guide-card'),stepLabel=document.querySelector('#step-label'),stepTrack=document.querySelector('#step-track'),progress=document.querySelector('[role="progressbar"]'),previous=document.querySelector('#previous'),next=document.querySelector('#next'),status=document.querySelector('#form-status'),modal=document.querySelector('#telegram-modal');
     let selectedCurrency='PEN';const money=n=>(selectedCurrency==='PEN'?'S/ ':'$ ')+new Intl.NumberFormat('es-PE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
     const phoneLib=window.libphonenumber;
     const fallbackCountries=[['PE','51'],['AR','54'],['BO','591'],['BR','55'],['CA','1'],['CL','56'],['CO','57'],['CR','506'],['EC','593'],['ES','34'],['GB','44'],['GT','502'],['HN','504'],['MX','52'],['NI','505'],['PA','507'],['PY','595'],['US','1'],['UY','598'],['VE','58']];
@@ -109,7 +152,7 @@
     function drawCountries(query=''){countryOptions.innerHTML='';const q=query.trim().toLocaleLowerCase('es');countries.filter(([iso])=>`${regionNames.of(iso)} ${iso}`.toLocaleLowerCase('es').includes(q)).forEach(([iso,dial])=>{const option=document.createElement('button');option.type='button';option.className='country-option';option.setAttribute('role','option');option.textContent=`${flag(iso)}  ${regionNames.of(iso)}  +${dial}`;option.addEventListener('click',()=>{countrySelect.value=iso;countryButton.textContent=`${flag(iso)} +${dial}`;countryMenu.hidden=true;countryButton.setAttribute('aria-expanded','false');phoneInput.focus()});countryOptions.appendChild(option)})}
     drawCountries();countryButton.textContent='🇵🇪 +51';countryButton.addEventListener('click',()=>{countryMenu.hidden=!countryMenu.hidden;countryButton.setAttribute('aria-expanded',String(!countryMenu.hidden));if(!countryMenu.hidden){drawCountries();countrySearch.value='';countrySearch.focus()}});countrySearch.addEventListener('input',()=>drawCountries(countrySearch.value));document.addEventListener('click',e=>{if(!e.target.closest('.country-picker')){countryMenu.hidden=true;countryButton.setAttribute('aria-expanded','false')}});
     const icon=(b,large=false)=>`<div class="${large?'guide-art':'illustration'}" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">${b.icon}</svg></div>`;
-    function show(screen){[formScreen,incomeScreen,loadingScreen,guideScreen,summaryScreen].forEach(s=>s.hidden=s!==screen);document.querySelector('#hero').hidden=screen!==formScreen;window.scrollTo({top:0,behavior:'smooth'})}
+    function show(screen){[formScreen,incomeScreen,loadingScreen,guideScreen,summaryScreen,thanksScreen].forEach(s=>s.hidden=s!==screen);document.querySelector('#hero').hidden=screen!==formScreen;window.scrollTo({top:0,behavior:'smooth'})}
     function setError(fieldId,errorId,message){const field=document.getElementById(fieldId),error=document.getElementById(errorId);field.setAttribute('aria-invalid',message?'true':'false');error.textContent=message;error.hidden=!message}
     function clearErrors(){[['person-name','name-error'],['email','email-error'],['phone','phone-error'],['income','income-error']].forEach(([f,e])=>setError(f,e,''));status.hidden=true;status.textContent=''}
     function renderStep(){const b=buckets[currentStep];guideCard.style.setProperty('--accent',b.color);guideCard.style.setProperty('--tint',b.tint);guideCard.innerHTML=`<div class="guide-copy"><span class="num">CUENTA ${currentStep+1} · ${b.pct}%</span><h2>${b.name}</h2><div class="guide-amount">${money(income*b.pct/100)}</div><p class="guide-desc">Este monto se destina a ${b.desc.charAt(0).toLowerCase()+b.desc.slice(1)}</p></div>${icon(b,true)}`;stepLabel.textContent=`Cuenta ${currentStep+1} de 6`;stepTrack.innerHTML=buckets.map((item,i)=>`<span class="${i<currentStep?'done ':''}${i===currentStep?'done current':''}" style="--c:${item.color};background:var(--c);width:${item.pct}%" aria-hidden="true"></span>`).join('');progress.setAttribute('aria-valuenow',String(currentStep+1));progress.setAttribute('aria-valuetext',`Cuenta ${currentStep+1} de 6: ${b.name}, ${b.pct}% del ingreso`);previous.disabled=currentStep===0;next.textContent=currentStep===buckets.length-1?'Ver resumen →':'Siguiente →'}
@@ -144,13 +187,17 @@
           });
         });
     document.querySelector('#back-to-registration').addEventListener('click',function(){show(formScreen)});
-    document.querySelector('#start-calculation').addEventListener('click',async function(){var amount=Number(input.value);setError('income','income-error','');if(!Number.isFinite(amount)||amount<=0||amount>1000000000){setError('income','income-error','Escribe un monto mayor que cero, por ejemplo 2,500 o 2,500.50.');input.focus();return}income=amount;selectedTier=income<3000?tiers[0]:income<10000?tiers[1]:tiers[2];buckets.forEach(function(bucket,index){bucket.pct=selectedTier.percentages[index]});currentStep=0;document.querySelector('#welcome').textContent='Vamos paso a paso, '+personName.split(' ')[0];show(loadingScreen);try{await fetch('https://script.google.com/macros/s/AKfycbxXwOu_OWDM08qvUbIfmhFxDTz5ANe3kmfRp2iV1hDRp633gQw2vrmePzz4yWj239vZ/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({},registrant,{income:income,currency:selectedCurrency,level:selectedTier.name}))})}catch(error){show(incomeScreen);var s=document.querySelector('#income-status');s.textContent='No pudimos guardar tus datos. Revisa tu conexión e inténtalo nuevamente.';s.hidden=false;return}setTimeout(function(){renderStep();show(guideScreen)},900)});
+    document.querySelector('#start-calculation').addEventListener('click',async function(){var amount=Number(input.value);setError('income','income-error','');if(!Number.isFinite(amount)||amount<=0||amount>1000000000){setError('income','income-error','Escribe un monto mayor que cero, por ejemplo 2,500 o 2,500.50.');input.focus();return}income=amount;selectedTier=income<3000?tiers[0]:income<10000?tiers[1]:tiers[2];buckets.forEach(function(bucket,index){bucket.pct=selectedTier.percentages[index]});currentStep=0;document.querySelector('#welcome').textContent='Vamos paso a paso, '+personName.split(' ')[0];show(loadingScreen);beginLoading();try{await fetch('https://script.google.com/macros/s/AKfycbxXwOu_OWDM08qvUbIfmhFxDTz5ANe3kmfRp2iV1hDRp633gQw2vrmePzz4yWj239vZ/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({},registrant,{income:income,currency:selectedCurrency,level:selectedTier.name}))})}catch(error){stopLoading();show(incomeScreen);var s=document.querySelector('#income-status');s.textContent='No pudimos guardar tus datos. Revisa tu conexión e inténtalo nuevamente.';s.hidden=false;return}finishLoading();setTimeout(function(){renderStep();show(guideScreen)},260)});
     previous.addEventListener('click',function(){if(currentStep>0){currentStep--;renderStep();show(guideScreen)}});
     next.addEventListener('click',function(){if(currentStep<buckets.length-1){currentStep++;renderStep();show(guideScreen)}else{renderSummary();show(summaryScreen)}});
     document.querySelector('#download-pdf').addEventListener('click',function(){var JsPDF=window.jspdf&&window.jspdf.jsPDF;if(!JsPDF){status.textContent='No se pudo cargar la función de PDF. Revisa tu conexión e inténtalo de nuevo.';status.hidden=false;return}var doc=new JsPDF({unit:'mm',format:'a4'});doc.setFillColor(11,11,11);doc.rect(0,0,210,297,'F');doc.setTextColor(255,202,39);doc.setFont('helvetica','bold');doc.setFontSize(12);doc.text('VEHÍCULO FINANCIERO',18,22);doc.setTextColor(247,248,251);doc.setFontSize(21);doc.text('Tu distribución en 6 cuentas',18,36);doc.setFontSize(12);doc.setFont('helvetica','normal');doc.text('Nombre: '+personName,18,49);doc.text('Ingreso mensual: '+money(income),18,57);doc.setTextColor(237,196,94);doc.setFont('helvetica','bold');doc.text(selectedTier.name,18,70);doc.setTextColor(247,248,251);doc.setFont('helvetica','normal');doc.setFontSize(10);doc.text('Objetivo:',18,78);doc.text(doc.splitTextToSize(selectedTier.priority,174),18,84);var y=103;doc.setDrawColor(70,94,116);buckets.forEach(function(b){doc.line(18,y-6,192,y-6);doc.setTextColor(247,248,251);doc.setFont('helvetica','bold');doc.text(b.name,18,y);doc.setFont('helvetica','normal');doc.text(String(b.pct)+'%',130,y);doc.text(money(income*b.pct/100),160,y);y+=17});doc.line(18,y-7,192,y-7);doc.save('distribucion-financiera-'+new Date().toISOString().slice(0,10)+'.pdf');fetch('https://script.google.com/macros/s/AKfycbxXwOu_OWDM08qvUbIfmhFxDTz5ANe3kmfRp2iV1hDRp633gQw2vrmePzz4yWj239vZ/exec',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(Object.assign({},registrant,{action:'pdf_downloaded'}))});setTimeout(function(){modal.hidden=false;document.querySelector('#close-modal').focus()},250)});
     document.querySelector('#close-modal').addEventListener('click',function(){modal.hidden=true;document.querySelector('#download-pdf').focus()});
     modal.addEventListener('click',function(e){if(e.target===modal)modal.hidden=true});
-    document.querySelector('#restart').addEventListener('click',function(){form.reset();input.value='';input.disabled=true;document.querySelectorAll('.currency-option').forEach(function(b){b.setAttribute('aria-pressed','false')});document.querySelector('#start-calculation').disabled=true;selectedCurrency='PEN';document.querySelector('#currency-symbol').textContent='S/';income=0;personName='';registrant=null;currentStep=0;selectedTier=tiers[0];buckets.forEach(function(bucket,index){bucket.pct=tiers[0].percentages[index]});countrySelect.value='PE';countryButton.textContent='🇵🇪 +51';clearErrors();show(formScreen);nameInput.focus()});
+    function restartCalculator(){form.reset();input.value='';input.disabled=true;document.querySelectorAll('.currency-option').forEach(function(b){b.setAttribute('aria-pressed','false')});document.querySelector('#start-calculation').disabled=true;selectedCurrency='PEN';document.querySelector('#currency-symbol').textContent='S/';income=0;personName='';registrant=null;currentStep=0;selectedTier=tiers[0];buckets.forEach(function(bucket,index){bucket.pct=tiers[0].percentages[index]});countrySelect.value='PE';countryButton.textContent='🇵🇪 +51';clearErrors();show(formScreen);nameInput.focus()}
+    document.querySelector('#restart').addEventListener('click',restartCalculator);
+    document.querySelector('#thanks-restart').addEventListener('click',restartCalculator);
+    document.querySelector('#telegram-join').addEventListener('click',function(){setTimeout(function(){modal.hidden=true;show(thanksScreen);document.querySelector('#thanks-restart').focus()},300)});
+
   </script>
 </body>
 </html>
