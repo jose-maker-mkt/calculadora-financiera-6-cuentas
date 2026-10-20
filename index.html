@@ -246,6 +246,27 @@
     @media(prefers-reduced-motion:reduce){
       .consent input::before{transition:none}
     }
+    @media(max-width:560px) and (min-height:760px){
+      .wrap{padding:10px 12px 12px}
+      .brandbar{padding:5px 9px;margin-bottom:11px}
+      .brandbar img{max-height:34px}
+      #hero > .eyebrow{font-size:.66rem;margin:0 0 5px}
+      #hero > h1{font-size:clamp(1.65rem,7vw,2.15rem);line-height:1.03}
+      #hero > .intro{font-size:.87rem;line-height:1.35;margin:7px 0 12px}
+      #form-screen .calc{padding:14px;gap:9px}
+      #form-screen .welcome-copy{gap:10px}
+      #form-screen .welcome-icon{width:36px;height:36px;font-size:1.2rem;border-radius:11px}
+      #form-screen .welcome-copy h2{font-size:1.03rem;line-height:1.18;margin-bottom:4px}
+      #form-screen .welcome-copy p{font-size:.82rem;line-height:1.34}
+      #form-screen .fields{gap:8px}
+      #form-screen .field label{font-size:.79rem;margin-bottom:5px}
+      #form-screen .text-input,#form-screen .country-picker > button{min-height:42px;padding:10px 12px;font-size:.88rem}
+      #form-screen .phone-field .phone-row{grid-template-columns:82px minmax(0,1fr);gap:7px}
+      #form-screen .phone-field .hint{font-size:.71rem;line-height:1.25;margin-top:5px}
+      #form-screen .consent{font-size:.73rem;line-height:1.3;gap:7px}
+      #form-screen .consent input{width:17px;height:17px}
+      #form-screen .calculate{min-height:44px;padding:10px 14px;font-size:.86rem}
+    }
   </style>
 </head>
 <body>
