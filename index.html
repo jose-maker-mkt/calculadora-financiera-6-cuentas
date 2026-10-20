@@ -170,16 +170,92 @@
     @media(max-width:560px){.step-screen{min-height:calc(100svh - 55px);align-items:center}.step-panel{gap:24px;padding:22px 18px;border-radius:20px}.step-heading h2{font-size:1.55rem}.step-panel .currency-options{grid-template-columns:1fr;gap:12px}.step-panel .currency-option{min-height:82px}.step-panel .income-actions{flex-direction:column-reverse;align-items:stretch}.step-panel .income-actions button{width:100%}.amount-panel .money input{min-height:68px}.summary .card{min-height:190px}.summary .card .amount{font-size:1.4rem}}
     @media(prefers-reduced-motion:reduce){.screen.is-entering,.screen.is-leaving{animation:none!important}.step-panel .currency-option,.summary .card{transition:none!important}}
 
+
+    /* Ajustes de legibilidad, densidad y adaptación por pantalla. */
+    .brandbar{width:min(100%,760px);gap:18px;padding:8px 14px;margin-bottom:22px}
+    .brandbar img{max-height:58px}
+    .brand-nr{width:min(42%,290px)}
+    .brand-financiero{width:min(27%,180px)}
+    .brand-divider{height:38px}
+    .step-screen{min-height:calc(100svh - 178px);padding:12px 0}
+    .step-panel{gap:clamp(18px,3vh,26px);border-radius:24px}
+    .step-panel .income-actions{margin-top:0}
+    .choice-check{width:28px;height:28px;border:2px solid currentColor;background:#ffffff0d;color:transparent}
+    .currency-option[aria-pressed=true] .choice-check{border-color:#0b0b0b;background:#0b0b0b;color:var(--gold)}
+    .consent input{-webkit-appearance:none;appearance:none;display:grid;place-content:center;border:2px solid #b7c5d2;border-radius:5px;background:#0b0b0b;cursor:pointer}
+    .consent input::before{content:"✓";color:#0b0b0b;font-size:14px;font-weight:900;line-height:1;transform:scale(0);transition:transform .12s ease}
+    .consent input:checked{border-color:var(--gold);background:var(--gold)}
+    .consent input:checked::before{transform:scale(1)}
+    .consent input:focus-visible,.currency-option:focus-visible,.calculate:focus-visible,.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+    .currency-option{transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease}
+    .summary .results-head{margin:24px 0 12px}
+    .summary .card{min-height:174px;padding:16px;background:linear-gradient(145deg,#fff,#f4f5f7 80%);color:#111;border:1px solid #e1e4e8;border-top:5px solid var(--accent);box-shadow:0 10px 24px #0002}
+    .summary .card .num{color:#20252a;background:var(--tint)}
+    .summary .card .pct{color:#111;background:var(--tint)}
+    .summary .card h3,.summary .card .amount{color:#111}
+    .summary .card .amount{font-size:clamp(1.25rem,1.65vw,1.6rem);letter-spacing:0;font-variant-numeric:tabular-nums}
+    .summary .card p{color:#454b51}
+    .summary .card .illustration{background:var(--tint);color:var(--accent);box-shadow:inset 0 0 0 1px #0000000d}
+    .summary .card::after{opacity:.3}
+    @media(min-width:900px){
+      .wrap{min-height:100svh;align-content:center;padding:14px 36px 20px;row-gap:0}
+      .brandbar{margin-bottom:14px}
+      .step-screen,.loading-screen,.guide,.thanks-screen{min-height:calc(100svh - 172px)}
+      .step-panel{padding:clamp(24px,3vw,38px)}
+      .summary{max-width:1100px}
+      .summary .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    }
+    @media(max-width:760px){
+      .step-screen{min-height:calc(100svh - 145px)}
+      .summary .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:560px){
+      .wrap{padding:14px 14px 22px}
+      .brandbar{width:100%;flex-direction:row;gap:9px;padding:7px 10px;margin-bottom:18px;border-radius:15px}
+      .brandbar img{max-height:42px}
+      .brand-nr{width:48%}
+      .brand-financiero{width:29%}
+      .brand-divider{height:26px;width:1px}
+      #hero > .eyebrow{font-size:.7rem;margin-bottom:8px}
+      #hero > h1{font-size:clamp(1.8rem,8vw,2.35rem);line-height:1.06}
+      #hero > .intro{font-size:.94rem;margin:9px 0 16px}
+      .calc{padding:17px}
+      .welcome-copy{gap:12px;padding-bottom:0}
+      .welcome-copy p{font-size:.9rem}
+      .fields{gap:11px}
+      .text-input{padding:14px 13px}
+      .consent{font-size:.82rem;line-height:1.42}
+      .step-screen{min-height:calc(100svh - 125px);padding:8px 0}
+      .step-panel{gap:20px;padding:21px 17px;border-radius:19px}
+      .step-heading h2{font-size:1.45rem}
+      .step-heading p{font-size:.93rem;margin-top:8px}
+      .step-panel .currency-option{min-height:72px;padding:14px 16px;border-radius:15px}
+      .step-panel .currency-options{gap:10px}
+      .step-panel .income-actions{gap:10px}
+      .step-panel .income-actions button{min-height:48px}
+      .amount-panel{gap:18px}
+      .amount-panel .money input{min-height:64px;padding-left:72px}
+      .summary .grid{grid-template-columns:1fr}
+      .summary .card{min-height:174px}
+      .loading-screen,.thanks-screen{min-height:calc(100svh - 125px)}
+    }
+    @media(max-height:700px) and (max-width:760px){
+      .step-screen{min-height:auto;align-items:flex-start;padding:12px 0}
+      .step-panel{gap:16px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .consent input::before{transition:none}
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <header id="hero">
-      <div class="brandbar" aria-label="Marcas NR Soluciones y Finanzas y Vehículo Financiero">
+    <div class="brandbar" aria-label="Marcas NR Soluciones y Finanzas y Vehículo Financiero">
         <img class="brand-nr" src="assets/logo-nr-soluciones-finanzas.png" alt="NR Soluciones y Finanzas" width="2171" height="724">
         <span class="brand-divider" aria-hidden="true"></span>
         <img class="brand-financiero" src="assets/logo-vehiculo-financiero.jpg" alt="Vehículo Financiero" width="720" height="180">
       </div>
+    <header id="hero">
       <p class="eyebrow">Vehículo financiero</p>
       <h1>Distribuye tus ingresos en 6 cuentas</h1>
       <p class="intro">Accede gratis a este ejercicio guiado.</p>
@@ -210,7 +286,7 @@
     <section class="screen step-screen" id="income-screen" hidden aria-labelledby="income-heading">
       <div class="calc step-panel amount-panel">
         <div class="step-heading"><span class="step-kicker">PASO 3 DE 3</span><h2 id="income-heading">Ingresa el monto que percibes de manera mensual</h2><p>Escribe tu ingreso mensual en la moneda seleccionada.</p></div>
-        <div class="field amount-field"><label for="income">Monto mensual</label><div class="money"><span class="currency" id="currency-symbol">S/</span><input id="income" name="income" type="number" min="0.01" max="1000000000" step="0.01" required inputmode="decimal" aria-describedby="income-hint income-error"></div><p class="hint" id="income-hint">Ingresa el monto mensual.</p><p class="field-error" id="income-error" hidden></p></div>
+        <div class="field amount-field"><label for="income">Monto mensual</label><div class="money"><span class="currency" id="currency-symbol">S/</span><input id="income" name="income" type="number" disabled min="0.01" max="1000000000" step="0.01" required inputmode="decimal" aria-describedby="income-hint income-error"></div><p class="hint" id="income-hint">Ingresa el monto mensual.</p><p class="field-error" id="income-error" hidden></p></div>
         <p class="form-status" id="income-status" role="alert" hidden></p>
         <div class="income-actions"><button class="btn" id="back-to-currency" type="button">← Cambiar moneda</button><button class="calculate" id="start-calculation" type="button" disabled>Comenzar el cálculo <span aria-hidden="true">→</span></button></div>
       </div>
@@ -287,7 +363,7 @@
       const current=screens.find(s=>!s.hidden);
       screens.forEach(s=>s.classList.remove('is-leaving','is-entering'));
       document.querySelector('#hero').hidden=screen!==formScreen;
-      const enter=()=>{screens.forEach(s=>s.hidden=s!==screen);screen.classList.remove('is-entering');void screen.offsetWidth;screen.classList.add('is-entering');setTimeout(()=>screen.classList.remove('is-entering'),520);window.scrollTo({top:0,behavior:'smooth'})};
+      const enter=()=>{screens.forEach(s=>s.hidden=s!==screen);screen.classList.remove('is-entering');void screen.offsetWidth;screen.classList.add('is-entering');setTimeout(()=>screen.classList.remove('is-entering'),520);window.scrollTo({top:0,behavior:'auto'})};
       if(current&&current!==screen){current.classList.add('is-leaving');screenTransitionTimer=setTimeout(()=>{current.hidden=true;current.classList.remove('is-leaving');screenTransitionTimer=null;enter()},180)}
       else enter();
     }
@@ -322,6 +398,7 @@
       button.addEventListener('click',function(){
         const nextCurrency=button.dataset.currency;
         if(selectedCurrency&&selectedCurrency!==nextCurrency){input.value='';document.querySelector('#start-calculation').disabled=true}
+        input.disabled=true
         selectedCurrency=nextCurrency;
         document.querySelectorAll('.currency-option').forEach(function(option){option.setAttribute('aria-pressed',String(option===button))});
         document.querySelector('#currency-symbol').textContent=selectedCurrency==='PEN'?'S/':'$';
@@ -330,7 +407,7 @@
       });
     });
     document.querySelector('#back-to-registration').addEventListener('click',function(){show(formScreen)});
-    document.querySelector('#continue-to-income').addEventListener('click',function(){if(!selectedCurrency)return;show(incomeScreen);setTimeout(function(){input.focus()},220)});
+    document.querySelector('#continue-to-income').addEventListener('click',function(){if(!selectedCurrency)return;input.disabled=false;show(incomeScreen);setTimeout(function(){input.focus({preventScroll:true})},220)});
     document.querySelector('#back-to-currency').addEventListener('click',function(){show(currencyScreen)});
     input.addEventListener('input',function(){document.querySelector('#start-calculation').disabled=!(Number(input.value)>0)});
     document.querySelector('#start-calculation').addEventListener('click',async function(){var amount=Number(input.value),incomeStatus=document.querySelector('#income-status'),startButton=document.querySelector('#start-calculation');setError('income','income-error','');incomeStatus.hidden=true;incomeStatus.textContent='';if(!Number.isFinite(amount)||amount<=0||amount>1000000000){setError('income','income-error','Escribe un monto mayor que cero, por ejemplo 2,500 o 2,500.50.');input.focus();return}income=amount;startButton.disabled=true;currentStep=0;document.querySelector('#welcome').textContent='Vamos paso a paso, '+personName.split(' ')[0];show(loadingScreen);beginLoading();try{fxRateInfo=await fetchBcrpRate()}catch(error){stopLoading();show(incomeScreen);incomeStatus.textContent='No pudimos obtener el tipo de cambio actualizado del BCRP. Inténtalo de nuevo en unos minutos.';incomeStatus.hidden=false;startButton.disabled=false;return}var incomeInSoles=selectedCurrency==='USD'?income*fxRateInfo.rate:income;selectedTier=incomeInSoles<3000?tiers[0]:incomeInSoles<10000?tiers[1]:tiers[2];buckets.forEach(function(bucket,index){bucket.pct=selectedTier.percentages[index]});investmentMonthly=income*buckets[2].pct/100;investmentMonthlyUsd=selectedCurrency==='USD'?investmentMonthly:investmentMonthly/fxRateInfo.rate;var baseMinimumUsd=selectedCurrency==='PEN'?1200/fxRateInfo.rate:300;fxMinimumWarning=selectedCurrency==='PEN'&&baseMinimumUsd<MINIMUM_INVESTMENT_USD;investmentTarget=selectedCurrency==='USD'?MINIMUM_INVESTMENT_USD:Math.max(1200,MINIMUM_INVESTMENT_USD*fxRateInfo.rate);monthsToMinimum=Math.max(1,Math.ceil(investmentTarget/investmentMonthly));var isPotentialInvestor=investmentMonthlyUsd>=INVESTOR_ALERT_USD;var payload=Object.assign({},registrant,{income:income,currency:selectedCurrency,level:selectedTier.name,fxRate:fxRateInfo.rate,fxDate:fxRateInfo.date,investmentMonthly:investmentMonthly,investmentMonthlyUsd:investmentMonthlyUsd,minimumAmount:investmentTarget,shareWithNestor:true,leadQualified:isPotentialInvestor});try{await fetchRegistration(payload)}catch(error){stopLoading();show(incomeScreen);incomeStatus.textContent='No pudimos guardar tus datos. Revisa tu conexión e inténtalo nuevamente.';incomeStatus.hidden=false;startButton.disabled=false;return}finishLoading();setTimeout(function(){renderStep();show(guideScreen);startButton.disabled=false},260)});
