@@ -491,6 +491,65 @@
       .step-panel>.currency-choice,.step-panel>.income-actions{min-width:0}
       .step-panel .currency-options{width:100%}
     }
+.level-banner strong{font-size:1.28rem;letter-spacing:.04em}
+.level-banner .level-name{display:block;color:#f7f8fb;font-size:1.08rem;font-weight:850;letter-spacing:.045em;text-transform:uppercase}
+.level-banner .level-objective{display:block;margin-top:10px}
+.investment-guidance .guidance-list{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.investment-guidance .guidance-list li{line-height:1.4;color:#e5e5e5}
+@media(max-width:899px){
+#hero{padding:clamp(8px,1.8svh,16px) 0}
+#hero>h1{line-height:1.12;letter-spacing:-.035em}
+#hero>.intro{font-size:.94rem;line-height:1.5;margin:10px 0 0}
+.wrap[data-active-screen="guide-screen"] #guide-screen{gap:0}
+.wrap[data-active-screen="guide-screen"] .guide-card{flex:0 0 auto;min-height:clamp(260px,38svh,340px);height:auto;grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;gap:10px;padding:clamp(14px,2.5svh,22px)}
+.wrap[data-active-screen="guide-screen"] .guide-card:after{width:220px;height:220px;right:-95px;top:-105px}
+.wrap[data-active-screen="guide-screen"] .guide-card .guide-art{grid-row:1;width:min(12svh,82px);border-radius:22px}
+.wrap[data-active-screen="guide-screen"] .guide-copy{align-self:center}
+.wrap[data-active-screen="guide-screen"] .guide-copy .num{font-size:.72rem}
+.wrap[data-active-screen="guide-screen"] .guide-copy h2{font-size:clamp(1.35rem,5.8vw,1.75rem);line-height:1.18;margin:8px 0}
+.wrap[data-active-screen="guide-screen"] .guide-amount{font-size:clamp(1.8rem,7vw,2.35rem);line-height:1.08}
+.wrap[data-active-screen="guide-screen"] .guide-desc{font-size:clamp(.88rem,3.7vw,1rem);line-height:1.4;margin-top:9px}
+.wrap[data-active-screen="summary-screen"] .summary-title h2{font-size:1.3rem}
+.wrap[data-active-screen="summary-screen"] .level-banner{padding:10px 12px}
+.wrap[data-active-screen="summary-screen"] .level-banner strong{font-size:1rem;margin-bottom:3px}
+.wrap[data-active-screen="summary-screen"] .level-banner .level-name{font-size:.88rem;line-height:1.25}
+.wrap[data-active-screen="summary-screen"] .level-banner .level-objective{margin-top:5px}
+.wrap[data-active-screen="summary-screen"] .results-head{flex-direction:row;align-items:center}
+.wrap[data-active-screen="summary-screen"] .results-head h2{font-size:1.18rem}
+.wrap[data-active-screen="summary-screen"] .total{font-size:1rem}
+.wrap[data-active-screen="summary-screen"] .total strong{font-size:1.24rem}
+.wrap[data-active-screen="summary-screen"] .summary .grid{flex:0 0 auto;grid-auto-rows:auto;align-content:start}
+.wrap[data-active-screen="summary-screen"] .summary .card{min-height:clamp(96px,13svh,120px);padding:10px 8px;display:flex;flex-direction:column;justify-content:center;text-align:center}
+.wrap[data-active-screen="summary-screen"] .summary .cardtop{justify-content:center;gap:7px;margin-bottom:4px}
+.wrap[data-active-screen="summary-screen"] .summary .num{font-size:.66rem;padding:4px 7px}
+.wrap[data-active-screen="summary-screen"] .summary .pct{font-size:.7rem;padding:4px 7px}
+.wrap[data-active-screen="summary-screen"] .summary .card h3{font-size:.86rem;line-height:1.2;margin:3px 0}
+.wrap[data-active-screen="summary-screen"] .summary .card .amount{font-size:clamp(1rem,4.5vw,1.22rem);font-weight:900;white-space:nowrap}
+.wrap[data-active-screen="summary-screen"] .investment-guidance{max-height:none;padding:9px 11px}
+.wrap[data-active-screen="summary-screen"] .investment-guidance h3{font-size:.88rem;line-height:1.25;margin-bottom:5px}
+.wrap[data-active-screen="summary-screen"] .investment-guidance .guidance-list{gap:4px}
+.wrap[data-active-screen="summary-screen"] .investment-guidance .guidance-list li,.wrap[data-active-screen="summary-screen"] .investment-guidance .fx-warning{font-size:.72rem;line-height:1.28}
+}
+@media(max-width:560px){
+.wrap[data-active-screen="guide-screen"] .guide-card{grid-template-columns:1fr;grid-template-rows:auto auto;gap:8px;padding:14px 16px}
+.wrap[data-active-screen="guide-screen"] .guide-card .guide-art{grid-row:1;width:min(11svh,70px)}
+.wrap[data-active-screen="guide-screen"] .guide-copy h2{font-size:clamp(1.3rem,5.5vw,1.65rem)}
+.wrap[data-active-screen="guide-screen"] .guide-amount{font-size:clamp(1.75rem,7vw,2.1rem)}
+.wrap[data-active-screen="summary-screen"] .summary .card{min-height:clamp(92px,12svh,108px)}
+.wrap[data-active-screen="summary-screen"] .summary .card h3{font-size:.8rem}
+.wrap[data-active-screen="summary-screen"] .summary .card .amount{font-size:clamp(.98rem,4.2vw,1.12rem)}
+}
+@media(max-width:380px){
+.wrap[data-active-screen="summary-screen"] .summary .card{min-height:88px}
+.wrap[data-active-screen="summary-screen"] .summary .card .amount{font-size:.92rem}
+.wrap[data-active-screen="summary-screen"] .investment-guidance .guidance-list li,.wrap[data-active-screen="summary-screen"] .investment-guidance .fx-warning{font-size:.66rem}
+}
+@media(max-width:899px) and (max-height:740px){
+.wrap[data-active-screen="summary-screen"] .summary .card{min-height:78px}
+.wrap[data-active-screen="summary-screen"] .summary .card h3{font-size:.76rem}
+.wrap[data-active-screen="summary-screen"] .investment-guidance{padding:6px 9px}
+.wrap[data-active-screen="guide-screen"] .guide-card{min-height:240px}
+}
 </style>
 </head>
 <body>
@@ -622,7 +681,7 @@
     function clearErrors(){[['person-name','name-error'],['email','email-error'],['phone','phone-error'],['income','income-error']].forEach(([f,e])=>setError(f,e,''));status.hidden=true;status.textContent=''}
     function renderStep(){const b=buckets[currentStep];guideCard.style.setProperty('--accent',b.color);guideCard.style.setProperty('--tint',b.tint);guideCard.innerHTML=`<div class="guide-copy"><span class="num">CUENTA ${currentStep+1} · ${b.pct}%</span><h2>${b.name}</h2><div class="guide-amount">${money(income*b.pct/100)}</div><p class="guide-desc">Este monto se destina a ${b.desc.charAt(0).toLowerCase()+b.desc.slice(1)}</p></div>${icon(b,true)}`;stepLabel.textContent=`Cuenta ${currentStep+1} de 6`;stepTrack.innerHTML=buckets.map((item,i)=>`<span class="${i<currentStep?'done ':''}${i===currentStep?'done current':''}" style="--c:${item.color};background:var(--c);width:${item.pct}%" aria-hidden="true"></span>`).join('');progress.setAttribute('aria-valuenow',String(currentStep+1));progress.setAttribute('aria-valuetext',`Cuenta ${currentStep+1} de 6: ${b.name}, ${b.pct}% del ingreso`);previous.disabled=currentStep===0;next.textContent=currentStep===buckets.length-1?'Ver resumen →':'Siguiente →'}
     function cardMarkup(b,i){return `<article class="card" style="--accent:${b.color};--tint:${b.tint}"><div class="cardtop"><span class="num">CUENTA ${i+1}</span><span class="pct">${b.pct}%</span></div><div class="cardbody"><div><h3>${b.name}</h3><div class="amount">${money(income*b.pct/100)}</div><p>${b.desc}</p></div>${icon(b)}</div></article>`}
-    function renderSummary(){total.textContent=money(income);distribution.innerHTML=buckets.map(b=>`<span style="--c:${b.color};width:${b.pct}%" title="${b.name}: ${b.pct}%"></span>`).join('');results.innerHTML=buckets.map(cardMarkup).join('');document.querySelector('#summary-heading').textContent=personName?`Resumen para ${personName}`:'Resumen de tu distribución';document.querySelector('#level-banner').innerHTML=`<strong>¡Excelente! Eres ${selectedTier.name}</strong><span>Ingreso mensual: ${money(income)}</span><br><span><b>Objetivo:</b> ${selectedTier.priority}</span>`;var baseMinimumUsd=selectedCurrency==='PEN'?1200/fxRateInfo.rate:300;fxMinimumWarning=selectedCurrency==='PEN'&&baseMinimumUsd<MINIMUM_INVESTMENT_USD;investmentTarget=selectedCurrency==='USD'?MINIMUM_INVESTMENT_USD:Math.max(1200,MINIMUM_INVESTMENT_USD*fxRateInfo.rate);monthsToMinimum=Math.max(1,Math.ceil(investmentTarget/investmentMonthly));var guidance=document.querySelector('#investment-guidance'),canStart=investmentMonthly>=investmentTarget;guidance.hidden=canStart;if(!canStart){var message=investmentGuidanceText();guidance.innerHTML=`<h3>Plan para alcanzar el mínimo de inicio</h3>${fxMinimumWarning?`<p class="fx-warning">Con el tipo de cambio de referencia actual, S/1,200 equivalen a ${moneyUsd(baseMinimumUsd)} y son menos que el mínimo fijo de US$300. Para alcanzar ambos criterios, el objetivo estimado hoy es ${formatMoney('PEN',investmentTarget)}.</p>`:''}<p>${message}</p><p class="estimate-note">Esta estimación supone que ahorras el monto mensual del fondo de inversión y partes de S/0 o US$0 acumulados para este objetivo.</p>`}var fxFooter=document.querySelector('#fx-reference');fxFooter.textContent='Tipo de cambio referencial BCRP: S/ '+new Intl.NumberFormat('es-PE',{minimumFractionDigits:4,maximumFractionDigits:4}).format(fxRateInfo.rate)+' por US$1 · compra interbancaria · muestra del '+fxRateInfo.date+'.';fxFooter.hidden=false;}
+    function renderSummary(){total.textContent=money(income);distribution.innerHTML=buckets.map(b=>`<span style="--c:${b.color};width:${b.pct}%" title="${b.name}: ${b.pct}%"></span>`).join('');results.innerHTML=buckets.map(cardMarkup).join('');document.querySelector('#summary-heading').textContent='Tu perfil financiero';document.querySelector('#level-banner').innerHTML='<strong>¡EXCELENTE!</strong><span class="level-name">ERES '+selectedTier.name.toLocaleUpperCase('es')+'</span><span class="level-objective"><b>Objetivo:</b> '+selectedTier.priority+'</span>';var baseMinimumUsd=selectedCurrency==='PEN'?1200/fxRateInfo.rate:300;fxMinimumWarning=selectedCurrency==='PEN'&&baseMinimumUsd<MINIMUM_INVESTMENT_USD;investmentTarget=selectedCurrency==='USD'?MINIMUM_INVESTMENT_USD:Math.max(1200,MINIMUM_INVESTMENT_USD*fxRateInfo.rate);monthsToMinimum=Math.max(1,Math.ceil(investmentTarget/investmentMonthly));var guidance=document.querySelector('#investment-guidance'),canStart=investmentMonthly>=investmentTarget;guidance.hidden=canStart;if(!canStart){var message=investmentGuidanceText();guidance.innerHTML='<h3>Planificación para comenzar en el Vehículo Financiero</h3><ul class="guidance-list"><li><b>Fondo mensual de inversión:</b> '+formatMoney(selectedCurrency,investmentMonthly)+'</li><li><b>Mínimo de inicio:</b> S/ 1,200 o US$ 300</li><li><b>Plan de ahorro:</b> separa '+formatMoney(selectedCurrency,investmentMonthly)+' cada mes durante '+monthsToMinimum+' '+(monthsToMinimum===1?'mes':'meses')+'.</li></ul>'+(fxMinimumWarning?'<p class="fx-warning">Con el tipo de cambio referencial actual, S/ 1,200 equivalen a '+moneyUsd(baseMinimumUsd)+'. Para cumplir el mínimo de US$ 300, la meta estimada es '+formatMoney('PEN',investmentTarget)+'.</p>':'')}var fxFooter=document.querySelector('#fx-reference');fxFooter.textContent='Tipo de cambio referencial BCRP: S/ '+new Intl.NumberFormat('es-PE',{minimumFractionDigits:4,maximumFractionDigits:4}).format(fxRateInfo.rate)+' por US$1 · compra interbancaria · muestra del '+fxRateInfo.date+'.';fxFooter.hidden=false;}
     function validateAndNormalize(){
       clearErrors();let firstInvalid=null;
       const name=nameInput.value.trim().replace(/\s+/g,' '),email=emailInput.value.trim().toLowerCase(),rawPhone=phoneInput.value.trim();
