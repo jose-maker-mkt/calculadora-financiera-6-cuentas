@@ -477,6 +477,20 @@
       .summary .illustration{display:none}
       .summary .cardbody{display:block}
     }
+
+    /* Evita que las reglas de layout anulen el atributo hidden y monten dos pantallas. */
+    .screen[hidden],#hero[hidden],#form-screen[hidden],#currency-screen[hidden],
+    #income-screen[hidden],#loading-screen[hidden],#guide-screen[hidden],
+    #summary-screen[hidden],#thanks-screen[hidden]{display:none!important}
+    @media(max-width:899px){
+      #hero:not([hidden]){display:block}
+      #form-screen:not([hidden]){display:flex}
+      .step-panel{flex-wrap:nowrap!important;flex-direction:column!important}
+      .step-panel>.step-heading,.step-panel>.currency-choice,.step-panel>.amount-field,
+      .step-panel>.income-actions,.step-panel>.form-status{width:100%;flex:0 0 auto}
+      .step-panel>.currency-choice,.step-panel>.income-actions{min-width:0}
+      .step-panel .currency-options{width:100%}
+    }
 </style>
 </head>
 <body>
