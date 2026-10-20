@@ -316,10 +316,171 @@
       .wrap[data-active-screen="currency-screen"] #currency-screen,
       .wrap[data-active-screen="income-screen"] #income-screen{flex:0 0 auto;min-height:0}
     }
-  </style>
+  
+    /* Alto controlado por viewport: marca fija arriba y contenido centrado sin scroll de página. */
+    @media (min-width:900px){
+      html,body{height:100%;min-height:0}
+      body{height:100dvh;overflow:hidden}
+      .wrap{height:100dvh;min-height:0;align-content:stretch;grid-template-rows:auto minmax(0,1fr);padding:12px 36px 14px;overflow:hidden}
+      .brandbar{grid-row:1;margin:0 auto 12px}
+      #hero{display:block;grid-column:1;grid-row:2;align-self:center;min-width:0}
+      #hero>.eyebrow,#hero>h1,#hero>.intro{grid-column:auto;grid-row:auto}
+      #hero>.eyebrow{margin:0 0 8px;align-self:auto}
+      #hero>h1{max-width:540px;margin:0;font-size:clamp(2.15rem,3.3vw,3.2rem);line-height:1.04}
+      #hero>.intro{max-width:440px;margin:14px 0 0;font-size:1rem;line-height:1.45}
+      #form-screen{grid-column:2;grid-row:2;align-self:center;min-height:0}
+      #income-screen,#loading-screen,#guide-screen,#summary-screen,#thanks-screen{grid-column:1/-1;grid-row:2;min-height:0}
+      .step-screen,.loading-screen,.guide,.thanks-screen{height:100%;min-height:0}
+      .summary{height:100%;min-height:0;max-height:100%;display:flex;flex-direction:column;overflow:hidden;margin:0 auto}
+      .summary-title{flex:none;margin:0 0 10px}
+      .summary .level-banner,.summary .investment-guidance{flex:none;margin:8px 0;padding:11px 15px}
+      .summary .results-head{flex:none;margin:10px 0}
+      .summary .distribution{flex:none;margin-bottom:10px}
+      .summary .grid{flex:1;min-height:0;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:10px}
+      .summary .card{min-height:0;padding:12px}
+      .summary .cardbody{grid-template-columns:minmax(0,1fr) 64px}
+      .summary .illustration{width:64px;height:64px}
+      .summary .illustration svg{width:48px;height:48px}
+      .summary-actions{flex:none;margin:10px 0 4px}
+      .fx-reference{flex:none;margin:4px 0 0;padding-top:6px}
+    }
+    @media (max-width:899px){
+      html,body{height:100%;min-height:0}
+      body{height:100dvh;min-height:0;overflow:hidden}
+      .wrap{display:flex;flex-direction:column;width:100%;height:100dvh;min-height:0;margin:0;padding:max(8px,env(safe-area-inset-top)) 14px max(8px,env(safe-area-inset-bottom));overflow:hidden}
+      .brandbar{flex:0 0 auto;width:100%;margin:0 auto 8px}
+      #hero{display:block;flex:0 0 auto;width:100%;margin:0}
+      #hero>.eyebrow{margin:0 0 6px;font-size:.7rem}
+      #hero>h1{font-size:clamp(1.65rem,7vw,2.25rem);line-height:1.04}
+      #hero>.intro{font-size:.9rem;line-height:1.35;margin:7px 0 10px}
+      #form-screen{flex:1 1 auto;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+      #form-screen .calc{width:100%;max-height:100%;padding:clamp(12px,2.4svh,18px);gap:clamp(8px,1.5svh,12px)}
+      #form-screen .welcome-copy{gap:10px;padding:0}
+      #form-screen .welcome-icon{width:36px;height:36px;flex:0 0 36px}
+      #form-screen .welcome-copy h2{font-size:1rem;line-height:1.2;margin:0 0 4px}
+      #form-screen .welcome-copy p{font-size:.82rem;line-height:1.35}
+      #form-screen .fields{grid-template-columns:1fr 1fr;gap:8px}
+      #form-screen .field label{font-size:.76rem;margin-bottom:4px}
+      #form-screen .text-input,#form-screen .country-picker>button{min-height:42px;padding:10px 11px;font-size:.86rem}
+      #form-screen .phone-field .phone-row{grid-template-columns:82px minmax(0,1fr);gap:7px}
+      #form-screen .phone-field .hint{font-size:.68rem;line-height:1.2;margin-top:4px}
+      #form-screen .consent{font-size:.72rem;line-height:1.25;gap:7px}
+      #form-screen .consent input{width:17px;height:17px}
+      #form-screen .calculate{min-height:42px;padding:9px 12px;font-size:.84rem}
+      .wrap[data-active-screen="currency-screen"],
+      .wrap[data-active-screen="income-screen"],
+      .wrap[data-active-screen="loading-screen"],
+      .wrap[data-active-screen="guide-screen"],
+      .wrap[data-active-screen="thanks-screen"]{justify-content:flex-start}
+      .wrap[data-active-screen="currency-screen"] #currency-screen,
+      .wrap[data-active-screen="income-screen"] #income-screen,
+      .wrap[data-active-screen="loading-screen"] #loading-screen,
+      .wrap[data-active-screen="guide-screen"] #guide-screen,
+      .wrap[data-active-screen="thanks-screen"] #thanks-screen{flex:1 1 auto;min-height:0;width:100%;height:auto;max-width:none;margin:0;overflow:hidden}
+      .wrap[data-active-screen="currency-screen"] #currency-screen,
+      .wrap[data-active-screen="income-screen"] #income-screen{display:flex;align-items:center;justify-content:center;padding:4px 0}
+      .wrap[data-active-screen="currency-screen"] .step-panel,
+      .wrap[data-active-screen="income-screen"] .step-panel{max-height:100%;gap:clamp(10px,2svh,18px);padding:clamp(14px,2.8svh,22px) clamp(15px,4vw,22px)}
+      .wrap[data-active-screen="currency-screen"] .step-heading h2,
+      .wrap[data-active-screen="income-screen"] .step-heading h2{font-size:clamp(1.25rem,5.8vw,1.55rem)}
+      .wrap[data-active-screen="currency-screen"] .step-panel .currency-option{min-height:clamp(56px,8svh,72px);padding:10px 13px}
+      .wrap[data-active-screen="income-screen"] .amount-panel .money input{min-height:56px}
+      .wrap[data-active-screen="currency-screen"] .income-actions,
+      .wrap[data-active-screen="income-screen"] .income-actions{margin-top:0}
+      .wrap[data-active-screen="loading-screen"] #loading-screen{display:flex;justify-content:center;align-items:center;padding:12px;gap:10px}
+      .wrap[data-active-screen="loading-screen"] .loader{margin:0}
+      .wrap[data-active-screen="guide-screen"] #guide-screen{display:flex;flex-direction:column;justify-content:center}
+      .wrap[data-active-screen="guide-screen"] .guide-head{flex:none;margin:0 0 8px}
+      .wrap[data-active-screen="guide-screen"] .step-track{flex:none;margin:0 0 10px}
+      .wrap[data-active-screen="guide-screen"] .guide-card{flex:1 1 auto;min-height:0;grid-template-columns:minmax(0,1fr) min(22svh,110px);gap:12px;padding:clamp(12px,2.4svh,20px)}
+      .wrap[data-active-screen="guide-screen"] .guide-card .guide-art{grid-row:auto;width:min(22svh,110px);border-radius:24px}
+      .wrap[data-active-screen="guide-screen"] .guide-copy h2{font-size:clamp(1.25rem,5.5vw,1.65rem);margin:10px 0 6px}
+      .wrap[data-active-screen="guide-screen"] .guide-amount{font-size:clamp(1.55rem,7vw,2.2rem)}
+      .wrap[data-active-screen="guide-screen"] .guide-desc{font-size:.86rem;line-height:1.35;margin-top:8px}
+      .wrap[data-active-screen="guide-screen"] .nav-buttons{flex:none;margin-top:10px}
+      .wrap[data-active-screen="guide-screen"] .nav-buttons .btn{min-height:44px;padding:9px 12px}
+      .wrap[data-active-screen="summary-screen"]{display:flex;flex-direction:column}
+      .wrap[data-active-screen="summary-screen"] .summary{flex:1 1 auto;min-height:0;width:100%;height:auto;max-width:none;display:flex;flex-direction:column;overflow:hidden;margin:0}
+      .wrap[data-active-screen="summary-screen"] .summary-title{flex:none;margin:0 0 6px}
+      .wrap[data-active-screen="summary-screen"] .summary-title h2{font-size:1.15rem;margin:0}
+      .wrap[data-active-screen="summary-screen"] .summary-title p{display:none}
+      .wrap[data-active-screen="summary-screen"] .level-banner{flex:none;margin:5px 0;padding:8px 10px;font-size:.78rem;line-height:1.3}
+      .wrap[data-active-screen="summary-screen"] .level-banner strong{font-size:.84rem;margin:0}
+      .wrap[data-active-screen="summary-screen"] .investment-guidance{flex:none;margin:5px 0;padding:8px 10px;max-height:17svh;overflow:hidden}
+      .wrap[data-active-screen="summary-screen"] .investment-guidance h3{font-size:.82rem;margin:0 0 4px}
+      .wrap[data-active-screen="summary-screen"] .investment-guidance p{font-size:.7rem;line-height:1.25;margin:3px 0}
+      .wrap[data-active-screen="summary-screen"] .investment-guidance .estimate-note{display:none}
+      .wrap[data-active-screen="summary-screen"] .results-head{flex:none;align-items:center;margin:6px 0}
+      .wrap[data-active-screen="summary-screen"] .results-head h2{font-size:.95rem}
+      .wrap[data-active-screen="summary-screen"] .total{font-size:.72rem}
+      .wrap[data-active-screen="summary-screen"] .total strong{font-size:.83rem}
+      .wrap[data-active-screen="summary-screen"] .distribution{flex:none;height:8px;margin:0 0 6px}
+      .wrap[data-active-screen="summary-screen"] .summary .grid{flex:1 1 auto;min-height:0;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:6px}
+      .wrap[data-active-screen="summary-screen"] .summary .card{min-height:0;padding:7px 9px;border-top-width:3px}
+      .wrap[data-active-screen="summary-screen"] .summary .cardtop{gap:4px}
+      .wrap[data-active-screen="summary-screen"] .summary .num{font-size:.58rem;padding:3px 6px}
+      .wrap[data-active-screen="summary-screen"] .summary .pct{font-size:.65rem;padding:3px 6px}
+      .wrap[data-active-screen="summary-screen"] .summary .cardbody{display:block}
+      .wrap[data-active-screen="summary-screen"] .summary .card h3{font-size:.79rem;margin:4px 0 2px}
+      .wrap[data-active-screen="summary-screen"] .summary .card .amount{font-size:clamp(.82rem,3.7vw,1rem);white-space:normal;overflow-wrap:anywhere}
+      .wrap[data-active-screen="summary-screen"] .summary .card p,
+      .wrap[data-active-screen="summary-screen"] .summary .card .illustration{display:none}
+      .wrap[data-active-screen="summary-screen"] .summary-actions{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:7px 0 3px}
+      .wrap[data-active-screen="summary-screen"] .summary-actions .btn{min-width:0;min-height:40px;padding:7px 8px;font-size:.68rem}
+      .wrap[data-active-screen="summary-screen"] .fx-reference{flex:none;font-size:.62rem;line-height:1.2;margin:3px 0 0;padding-top:4px}
+      .thanks-panel{padding:20px}
+      .wrap[data-active-screen="thanks-screen"] #thanks-screen{display:flex;align-items:center;justify-content:center}
+    }
+    @media (max-width:560px){
+      .wrap{padding:max(6px,env(safe-area-inset-top)) 12px max(6px,env(safe-area-inset-bottom))}
+      .brandbar{gap:8px;padding:4px 8px;margin-bottom:6px;border-radius:13px}
+      .brandbar img{max-height:34px}
+      .brand-nr{width:48%}
+      .brand-financiero{width:29%}
+      .brand-divider{height:24px;width:1px}
+      #form-screen .fields{grid-template-columns:1fr}
+      .wrap[data-active-screen="guide-screen"] .guide-card{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:7px;padding:10px 13px}
+      .wrap[data-active-screen="guide-screen"] .guide-card .guide-art{grid-row:1;width:min(13svh,76px);border-radius:18px}
+      .wrap[data-active-screen="guide-screen"] .guide-copy h2{font-size:clamp(1.12rem,5vw,1.45rem);margin:5px 0 3px}
+      .wrap[data-active-screen="guide-screen"] .guide-amount{font-size:clamp(1.35rem,6.5vw,1.9rem)}
+      .wrap[data-active-screen="guide-screen"] .guide-desc{font-size:.78rem;line-height:1.25;margin-top:5px}
+      .wrap[data-active-screen="summary-screen"] .investment-guidance{max-height:15svh}
+      .wrap[data-active-screen="summary-screen"] .summary .card h3{font-size:.72rem}
+      .wrap[data-active-screen="summary-screen"] .summary .card .amount{font-size:clamp(.75rem,3.5vw,.9rem)}
+    }
+    @media (max-width:899px) and (max-height:680px){
+      .wrap{padding-top:4px;padding-bottom:4px}
+      .brandbar{margin-bottom:4px}
+      .brandbar img{max-height:28px}
+      #hero>.eyebrow{margin-bottom:3px}
+      #hero>h1{font-size:clamp(1.4rem,6vw,1.8rem)}
+      #hero>.intro{font-size:.78rem;margin:4px 0 5px}
+      #form-screen .calc{padding:9px;gap:6px}
+      #form-screen .welcome-copy p{display:none}
+      #form-screen .fields{gap:5px}
+      #form-screen .text-input,#form-screen .country-picker>button{min-height:36px;padding:7px 9px}
+      #form-screen .phone-field .hint{display:none}
+      #form-screen .consent{font-size:.66rem}
+      #form-screen .calculate{min-height:36px;padding:7px}
+      .wrap[data-active-screen="guide-screen"] .guide-art{display:none}
+      .wrap[data-active-screen="guide-screen"] .guide-card{grid-template-columns:1fr}
+      .wrap[data-active-screen="summary-screen"] .investment-guidance{max-height:12svh}
+    }
+    @media (max-height:650px) and (min-width:900px){
+      .wrap{padding-top:6px;padding-bottom:6px}
+      .brandbar{margin-bottom:7px}
+      .brandbar img{max-height:42px}
+      #hero>h1{font-size:2rem}
+      #hero>.intro{margin-top:8px}
+      .summary .card{padding:8px}
+      .summary .card p{font-size:.7rem}
+      .summary .illustration{display:none}
+      .summary .cardbody{display:block}
+    }
+</style>
 </head>
 <body>
-  <main class="wrap">
+  <main class="wrap" data-active-screen="form-screen">
     <div class="brandbar" aria-label="Marcas NR Soluciones y Finanzas y Vehículo Financiero">
         <img class="brand-nr" src="assets/logo-nr-soluciones-finanzas.png" alt="NR Soluciones y Finanzas" width="2171" height="724">
         <span class="brand-divider" aria-hidden="true"></span>
