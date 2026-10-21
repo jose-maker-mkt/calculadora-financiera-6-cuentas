@@ -676,6 +676,11 @@
       #currency-screen .step-panel .income-actions,
       #income-screen.step-screen .step-panel .income-actions { margin-top: 4px; }
     }
+  
+    @media (min-width: 900px) {
+      #income-screen .amount-field { flex: 0 1 auto; }
+      #income-screen.step-screen .amount-panel { gap: clamp(16px, 2vh, 22px); }
+    }
   </style>
 </head>
 <body>
