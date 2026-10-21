@@ -681,6 +681,54 @@
       #income-screen .amount-field { flex: 0 1 auto; }
       #income-screen.step-screen .amount-panel { gap: clamp(16px, 2vh, 22px); }
     }
+  
+    /* Conserva legibles las seis cuentas cuando el escritorio tiene poca altura. */
+    @media (min-width: 900px) and (max-height: 850px) {
+      .wrap[data-active-screen="summary-screen"] .summary-title { margin: 0 0 4px; }
+      .wrap[data-active-screen="summary-screen"] .summary-title p { display: none; }
+      .wrap[data-active-screen="summary-screen"] .level-banner {
+        margin: 4px 0; padding: 7px 12px; line-height: 1.25;
+      }
+      .wrap[data-active-screen="summary-screen"] .level-banner strong {
+        font-size: 1rem; line-height: 1.1; margin-bottom: 2px;
+      }
+      .wrap[data-active-screen="summary-screen"] .level-banner .level-name {
+        font-size: .84rem; line-height: 1.15;
+      }
+      .wrap[data-active-screen="summary-screen"] .level-banner .level-objective {
+        font-size: .78rem; line-height: 1.2; margin-top: 4px;
+      }
+      .wrap[data-active-screen="summary-screen"] .investment-guidance {
+        margin: 4px 0; padding: 7px 12px;
+      }
+      .wrap[data-active-screen="summary-screen"] .investment-guidance h3 {
+        font-size: .9rem; line-height: 1.15; margin: 0 0 4px;
+      }
+      .wrap[data-active-screen="summary-screen"] .investment-guidance .guidance-list { gap: 1px; }
+      .wrap[data-active-screen="summary-screen"] .investment-guidance .guidance-list li,
+      .wrap[data-active-screen="summary-screen"] .investment-guidance .fx-warning {
+        font-size: .76rem; line-height: 1.15;
+      }
+      .wrap[data-active-screen="summary-screen"] .results-head { margin: 5px 0; }
+      .wrap[data-active-screen="summary-screen"] .results-head h2 { font-size: 1.15rem; }
+      .wrap[data-active-screen="summary-screen"] .total { font-size: .85rem; }
+      .wrap[data-active-screen="summary-screen"] .total strong { font-size: 1rem; }
+      .wrap[data-active-screen="summary-screen"] .distribution { height: 8px; margin-bottom: 6px; }
+      .wrap[data-active-screen="summary-screen"] .summary .grid { gap: 8px; }
+      .wrap[data-active-screen="summary-screen"] .summary .card {
+        min-height: 90px; padding: 9px;
+      }
+      .wrap[data-active-screen="summary-screen"] .summary .card h3 {
+        font-size: .92rem; margin: 7px 0 3px;
+      }
+      .wrap[data-active-screen="summary-screen"] .summary .card .amount {
+        font-size: clamp(1rem, 1.45vw, 1.3rem);
+      }
+      .wrap[data-active-screen="summary-screen"] .summary-actions { margin: 7px 0 2px; }
+      .wrap[data-active-screen="summary-screen"] .fx-reference {
+        font-size: .72rem; line-height: 1.2; margin: 3px 0 0; padding-top: 4px;
+      }
+    }
   </style>
 </head>
 <body>
