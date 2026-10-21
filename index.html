@@ -136,8 +136,8 @@
 
   
     /* Flujo por pasos y lenguaje visual inspirado en paneles financieros modernos. */
-    .screen.is-entering{animation:screen-enter 1.92s cubic-bezier(.22,1,.36,1) both}
-    .screen.is-leaving{animation:screen-exit 1.32s cubic-bezier(.4,0,.2,1) both;pointer-events:none}
+    .screen.is-entering{animation:screen-enter 1.3s ease-in-out both}
+    .screen.is-leaving{animation:screen-exit 1s ease-in-out both;pointer-events:none}
     @keyframes screen-enter{from{opacity:0;transform:translateY(8px) scale(.997)}to{opacity:1;transform:translateY(0) scale(1)}}
     @keyframes screen-exit{to{opacity:0;transform:translateY(-3px) scale(.998)}}
     .step-screen{width:min(100%,860px);min-height:calc(100svh - 128px);margin:0 auto;display:flex;align-items:center;justify-content:center}
@@ -555,8 +555,8 @@
 }
 @media(max-width:899px){.wrap[data-active-screen="summary-screen"] .results-head{flex-direction:column;align-items:center;justify-content:center;gap:3px}.wrap[data-active-screen="summary-screen"] .results-head h2{font-size:1.12rem;white-space:nowrap}.wrap[data-active-screen="summary-screen"] .total{display:flex;align-items:baseline;justify-content:center;gap:8px;white-space:nowrap;font-size:.95rem}.wrap[data-active-screen="summary-screen"] .total strong{font-size:1.28rem;margin:0}}
 @media(max-width:899px) and (max-height:740px){.wrap[data-active-screen="summary-screen"] .level-banner{padding:7px 9px;font-size:.70rem;line-height:1.22}.wrap[data-active-screen="summary-screen"] .level-banner strong{font-size:.88rem}.wrap[data-active-screen="summary-screen"] .level-banner .level-name{font-size:.78rem;line-height:1.15}.wrap[data-active-screen="summary-screen"] .level-banner .level-objective{font-size:.70rem;margin-top:3px}.wrap[data-active-screen="summary-screen"] .investment-guidance{padding:7px 9px}.wrap[data-active-screen="summary-screen"] .investment-guidance h3{font-size:.76rem;line-height:1.15}.wrap[data-active-screen="summary-screen"] .investment-guidance .guidance-list li,.wrap[data-active-screen="summary-screen"] .investment-guidance .fx-warning{font-size:.69rem;line-height:1.2}.wrap[data-active-screen="summary-screen"] .summary .card{min-height:56px;padding:5px 5px}.wrap[data-active-screen="summary-screen"] .summary .cardtop{margin-bottom:2px}.wrap[data-active-screen="summary-screen"] .summary .num,.wrap[data-active-screen="summary-screen"] .summary .pct{font-size:.58rem;padding:3px 5px}.wrap[data-active-screen="summary-screen"] .summary .cardbody>div{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:3px}.wrap[data-active-screen="summary-screen"] .summary .card h3{font-size:.67rem;line-height:1.1;margin:0;text-align:left}.wrap[data-active-screen="summary-screen"] .summary .card .amount{font-size:.78rem;line-height:1.1;white-space:nowrap}.wrap[data-active-screen="summary-screen"] .results-head h2{font-size:1rem}.wrap[data-active-screen="summary-screen"] .total{font-size:.85rem}.wrap[data-active-screen="summary-screen"] .total strong{font-size:1.05rem}}
-.screen.is-entering{animation:screen-enter .28s ease-out both}
-.screen.is-leaving{animation:screen-exit .12s ease-in both;pointer-events:none}
+.screen.is-entering{animation:screen-enter 1.3s ease-in-out both}
+.screen.is-leaving{animation:screen-exit 1s ease-in-out both;pointer-events:none}
 @keyframes screen-enter{from{opacity:0}to{opacity:1}}
 @keyframes screen-exit{from{opacity:1}to{opacity:0}}
 .summary.is-qualified{justify-content:center}
@@ -733,7 +733,44 @@
         font-size: .72rem; line-height: 1.2; margin: 3px 0 0; padding-top: 4px;
       }
     }
-  </style>
+  
+
+    /* Tipografía de escritorio: mejora lectura sin cambiar la composición mobile. */
+    @media (min-width: 900px) and (min-height: 651px) {
+      #form-screen .welcome-copy h2 { font-size: 1.35rem; line-height: 1.2; }
+      #form-screen .welcome-copy p { font-size: 1rem; line-height: 1.45; }
+      #form-screen .field label { font-size: 1rem; line-height: 1.3; }
+      #form-screen .text-input,
+      #form-screen .country-picker > button { font-size: 1rem; }
+      #form-screen .phone-field .hint { font-size: .86rem; line-height: 1.35; }
+      #form-screen .consent { font-size: .88rem; line-height: 1.4; }
+      #form-screen .calculate { font-size: 1rem; }
+      #form-screen .form-status { font-size: .9rem; }
+    }
+
+    /* En laptops, deja espacio para leer las descripciones de las seis cuentas. */
+    @media (min-width: 900px) and (max-height: 850px) {
+      .wrap[data-active-screen="summary-screen"] .level-banner .level-name { font-size: .96rem; line-height: 1.25; }
+      .wrap[data-active-screen="summary-screen"] .level-banner .level-objective { font-size: .86rem; line-height: 1.3; }
+      .wrap[data-active-screen="summary-screen"] .investment-guidance h3 { font-size: .98rem; line-height: 1.2; }
+      .wrap[data-active-screen="summary-screen"] .investment-guidance .guidance-list li,
+      .wrap[data-active-screen="summary-screen"] .investment-guidance .fx-warning { font-size: .84rem; line-height: 1.25; }
+      .wrap[data-active-screen="summary-screen"] .total { font-size: .95rem; }
+      .wrap[data-active-screen="summary-screen"] .total strong { font-size: 1.15rem; }
+      .wrap[data-active-screen="summary-screen"] .summary .card h3 { font-size: 1rem; line-height: 1.2; }
+      .wrap[data-active-screen="summary-screen"] .summary .card .amount { font-size: clamp(1.1rem, 1.45vw, 1.3rem); }
+      .wrap[data-active-screen="summary-screen"] .summary .card p {
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin: 6px 0 0;
+        font-size: .8rem;
+        line-height: 1.25;
+      }
+      .wrap[data-active-screen="summary-screen"] .fx-reference { font-size: .76rem; line-height: 1.25; }
+    }
+</style>
 </head>
 <body>
   <main class="wrap" data-active-screen="form-screen">
@@ -852,8 +889,8 @@
       if(screenTransitionTimer){clearTimeout(screenTransitionTimer);screenTransitionTimer=null}
       const current=screens.find(s=>!s.hidden);
       screens.forEach(s=>s.classList.remove('is-leaving','is-entering'));
-      const enter=()=>{document.querySelector('.wrap').dataset.activeScreen=screen.id;document.querySelector('#hero').hidden=screen!==formScreen;screens.forEach(s=>s.hidden=s!==screen);screen.classList.remove('is-entering');void screen.offsetWidth;screen.classList.add('is-entering');setTimeout(()=>screen.classList.remove('is-entering'),1980)};
-      if(current&&current!==screen){current.classList.add('is-leaving');screenTransitionTimer=setTimeout(()=>{current.hidden=true;current.classList.remove('is-leaving');screenTransitionTimer=null;enter()},1320)}
+      const enter=()=>{document.querySelector('.wrap').dataset.activeScreen=screen.id;document.querySelector('#hero').hidden=screen!==formScreen;screens.forEach(s=>s.hidden=s!==screen);screen.classList.remove('is-entering');void screen.offsetWidth;screen.classList.add('is-entering');setTimeout(()=>screen.classList.remove('is-entering'),1350)};
+      if(current&&current!==screen){current.classList.add('is-leaving');screenTransitionTimer=setTimeout(()=>{current.hidden=true;current.classList.remove('is-leaving');screenTransitionTimer=null;enter()},1000)}
       else enter();
     }
     let loadingTimer=null,loadingValue=0;
