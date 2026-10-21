@@ -770,7 +770,9 @@
       }
       .wrap[data-active-screen="summary-screen"] .fx-reference { font-size: .76rem; line-height: 1.25; }
     }
-</style>
+    .screen.is-transition-enter{animation:screen-enter .5s ease-in-out both}
+    .screen.is-transition-exit{animation:screen-exit .5s ease-in-out both;pointer-events:none}
+  </style>
 </head>
 <body>
   <main class="wrap" data-active-screen="form-screen">
@@ -888,10 +890,10 @@
       const screens=[formScreen,currencyScreen,incomeScreen,loadingScreen,guideScreen,summaryScreen,thanksScreen];
       if(screenTransitionTimer){clearTimeout(screenTransitionTimer);screenTransitionTimer=null}
       const current=screens.find(s=>!s.hidden);
-      screens.forEach(s=>s.classList.remove('is-leaving','is-entering'));
-      const enter=()=>{document.querySelector('.wrap').dataset.activeScreen=screen.id;document.querySelector('#hero').hidden=screen!==formScreen;screens.forEach(s=>s.hidden=s!==screen);screen.classList.remove('is-entering');void screen.offsetWidth;screen.classList.add('is-entering');setTimeout(()=>screen.classList.remove('is-entering'),1000)};
-      if(current&&current!==screen){current.classList.add('is-leaving');screenTransitionTimer=setTimeout(()=>{current.hidden=true;current.classList.remove('is-leaving');screenTransitionTimer=null;enter()},1000)}
-      else enter();
+      screens.forEach(s=>s.classList.remove('is-leaving','is-entering','is-transition-enter','is-transition-exit'));
+      const enter=short=>{document.querySelector('.wrap').dataset.activeScreen=screen.id;document.querySelector('#hero').hidden=screen!==formScreen;screens.forEach(s=>s.hidden=s!==screen);const enteringClass=short?'is-transition-enter':'is-entering';screen.classList.remove('is-entering','is-transition-enter');void screen.offsetWidth;screen.classList.add(enteringClass);screenTransitionTimer=setTimeout(()=>{screen.classList.remove(enteringClass);screenTransitionTimer=null},short?500:1000)};
+      if(current&&current!==screen){current.classList.add('is-transition-exit');screenTransitionTimer=setTimeout(()=>{current.hidden=true;current.classList.remove('is-transition-exit');screenTransitionTimer=null;enter(true)},500)}
+      else enter(false);
     }
     let loadingTimer=null,loadingValue=0;
     function setLoadingProgress(value){loadingValue=Math.max(0,Math.min(100,value));loadProgressFill.style.width=loadingValue+'%';loadProgressLabel.textContent=Math.round(loadingValue)+'%';document.querySelector('.loading-progress').setAttribute('aria-valuenow',String(Math.round(loadingValue)));var stage=document.querySelector('#loading-stage');if(stage)stage.textContent=loadingValue<28?'Analizando tus ingresos…':loadingValue<58?'Calculando la distribución de tus cuentas…':loadingValue<88?'Revisando tu capacidad para comenzar…':'Preparando tus resultados…'}
