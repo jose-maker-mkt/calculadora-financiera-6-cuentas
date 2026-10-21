@@ -655,6 +655,27 @@
       }
     }
 
+  
+    /* Correcciones de ancho y altura en escritorio/tablet horizontal. */
+    @media (min-width: 900px) {
+      /* El paso de moneda comparte el ancho completo, como el paso del monto. */
+      #currency-screen { grid-column: 1 / -1; grid-row: 2; min-height: 0; }
+      #currency-screen.step-screen { width: min(100%, 860px); margin-inline: auto; }
+
+      /* Evita que el resumen se reduzca al ancho intrínseco de sus textos. */
+      #summary-screen.summary { width: min(100%, 1100px); }
+
+      /* Los pasos 2 y 3 se ajustan al contenido y quedan centrados en el área disponible. */
+      #currency-screen .step-panel,
+      #income-screen.step-screen .step-panel {
+        height: auto;
+        min-height: 0;
+        gap: clamp(16px, 2.4vh, 24px);
+        padding: clamp(22px, 2.2vw, 34px);
+      }
+      #currency-screen .step-panel .income-actions,
+      #income-screen.step-screen .step-panel .income-actions { margin-top: 4px; }
+    }
   </style>
 </head>
 <body>
