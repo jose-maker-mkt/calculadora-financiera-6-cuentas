@@ -11,18 +11,23 @@ type RegistrationPayload = {
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const origin = request.headers.get("Origin");
-  if (origin && origin !== new URL(request.url).origin) {
+  if (!origin || origin !== new URL(request.url).origin) {
     return json({ error: "origin_not_allowed" }, 403);
+  }
+  if (!request.headers.get("Content-Type")?.toLowerCase().startsWith("application/json")) {
+    return json({ error: "content_type_not_allowed" }, 415);
   }
   if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
     return json({ error: "backend_not_configured" }, 503);
   }
-  const declaredLength = Number(request.headers.get("Content-Length") || 0);
-  if (declaredLength > 16_384) return json({ error: "payload_too_large" }, 413);
 
   let body: RegistrationPayload;
   try {
-    body = await request.json() as RegistrationPayload;
+    const raw = await request.text();
+    if (new TextEncoder().encode(raw).byteLength > 16_384) {
+      return json({ error: "payload_too_large" }, 413);
+    }
+    body = JSON.parse(raw) as RegistrationPayload;
   } catch {
     return json({ error: "invalid_json" }, 400);
   }
