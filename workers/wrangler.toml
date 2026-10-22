@@ -1,0 +1,6 @@
+name = "financial-diagnosis-sheets-sync"
+main = "sheets-sync.ts"
+compatibility_date = "2026-10-22"
+
+[triggers]
+crons = ["* * * * *"]
