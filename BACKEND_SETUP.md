@@ -12,10 +12,14 @@ This branch introduces a server-side registration endpoint and a durable queue f
 4. Deploy the Worker from the `workers/` directory and set:
    - `SUPABASE_URL`
    - `SUPABASE_SERVICE_ROLE_KEY` (secret)
-   - `GOOGLE_SHEETS_WEBHOOK_URL` (the existing Apps Script web app URL)
+   - `GOOGLE_SHEETS_WEBHOOK_URL` (the existing Apps Script web app URL; store as a secret)
 5. Confirm the Pages deployment has the registration endpoint and the Worker cron is active before directing event attendees to it.
 
 The function stores the registration and a Sheets outbox job in one database transaction. The Worker processes jobs in small batches, retries failures with increasing delays, and clears the queued copy once Sheets accepts it. A Sheets outage therefore does not lose a registration or hold up the visitor's screen.
+
+## Before a large event
+
+Configure Cloudflare rate limiting or Turnstile for the public registration endpoint and run a load test against the Supabase project before relying on it for 2,000 simultaneous visitors. This code has not been load-tested.
 
 ## Data and consent
 
