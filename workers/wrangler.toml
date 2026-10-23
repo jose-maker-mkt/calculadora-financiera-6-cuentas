@@ -2,5 +2,8 @@ name = "financial-diagnosis-sheets-sync"
 main = "sheets-sync.ts"
 compatibility_date = "2026-10-22"
 
+[vars]
+SUPABASE_URL = "https://aitoubxeijfezpvtzyse.supabase.co"
+
 [triggers]
 crons = ["* * * * *"]
